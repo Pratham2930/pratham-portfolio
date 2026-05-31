@@ -56,6 +56,51 @@ const certifications = [
     borderColor: 'hover:border-orange-500/40',
     accentColor: 'orange',
   },
+  {
+    id: 4,
+    title: 'Create a Website with Mailchimp',
+    issuer: 'Coursera',
+    date: 'September 2025',
+    credentialLink: '/create-website-mailchimp.jpeg',
+    badge: 'Project Certificate',
+    description:
+      'Completed a hands-on project building a website using Mailchimp integration, learning email marketing automation, landing page design, and audience management.',
+    skills: ['Mailchimp', 'Website Development', 'Email Marketing', 'Landing Pages'],
+    path: '/create-website-mailchimp.jpeg',
+    color: 'from-green-600/10 to-emerald-500/5',
+    borderColor: 'hover:border-green-500/40',
+    accentColor: 'green',
+  },
+  {
+    id: 5,
+    title: 'Foundations of Data Science',
+    issuer: 'Google via Coursera',
+    date: 'May 2026',
+    credentialLink: '/foundations-data-science.jpeg',
+    badge: 'Course Certificate',
+    description:
+      'Completed comprehensive training on data science fundamentals, including statistical analysis, data visualization, machine learning basics, and real-world data applications.',
+    skills: ['Data Science', 'Statistics', 'Machine Learning', 'Data Visualization'],
+    path: '/foundations-data-science.jpeg',
+    color: 'from-purple-600/10 to-violet-500/5',
+    borderColor: 'hover:border-purple-500/40',
+    accentColor: 'purple',
+  },
+  {
+    id: 6,
+    title: 'AI & Deep Learning Concepts and Applications',
+    issuer: 'Simplilearn via Coursera',
+    date: 'October 2025',
+    credentialLink: '/ai-deep-learning.jpeg',
+    badge: 'Course Certificate',
+    description:
+      'Completed advanced training on artificial intelligence and deep learning concepts, including neural networks, TensorFlow, computer vision, and NLP applications.',
+    skills: ['AI', 'Deep Learning', 'Neural Networks', 'TensorFlow'],
+    path: '/ai-deep-learning.jpeg',
+    color: 'from-pink-600/10 to-rose-500/5',
+    borderColor: 'hover:border-pink-500/40',
+    accentColor: 'pink',
+  },
 ]
 
 // Premium Modal component to view credentials with rich styling & controls
@@ -117,6 +162,7 @@ function CertificateModal({ isOpen, onClose, cert }) {
             <img 
               src={cert.path} 
               alt={cert.title} 
+              loading="lazy"
               className="w-full h-full object-contain relative z-10"
             />
           </div>
@@ -213,6 +259,7 @@ function CertCard({ cert, index, onViewCertificate }) {
           <img 
             src={cert.path} 
             alt={`${cert.title} Thumbnail`} 
+            loading="lazy"
             className="w-full h-full object-cover opacity-85 group-hover/thumb:opacity-100 group-hover/thumb:scale-[1.05] transition-all duration-700" 
           />
           
