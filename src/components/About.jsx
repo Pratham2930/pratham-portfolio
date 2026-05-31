@@ -31,7 +31,7 @@ const personalInfo = [
   { icon: <FiMail size={15} />, label: 'Email', value: 'ravalpratham29@gmail.com', href: 'mailto:ravalpratham29@gmail.com' },
   { icon: <FiPhone size={15} />, label: 'Phone', value: '+91 8866346424', href: 'tel:+918866346424' },
   { icon: <FiMapPin size={15} />, label: 'Location', value: 'Gandhinagar, Gujarat, India' },
-  { icon: <FiLinkedin size={15} />, label: 'LinkedIn', value: 'pratham-r-703220257', href: 'https://www.linkedin.com/in/pratham-r-703220257' },
+  { icon: <FiLinkedin size={15} />, label: 'LinkedIn', value: 'www.linkedin.com/in/prathamraval20', href: 'https://www.linkedin.com/in/pratham-r-703220257' },
 ]
 
 export default function About() {
