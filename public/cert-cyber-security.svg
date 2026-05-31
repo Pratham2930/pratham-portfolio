@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" style="font-family:Inter,sans-serif">
+  <!-- Background -->
+  <rect width="800" height="560" fill="#0a0f1e"/>
+  <rect x="1" y="1" width="798" height="558" fill="none" stroke="#8b5cf6" stroke-width="2" rx="12"/>
+  <!-- Inner border -->
+  <rect x="16" y="16" width="768" height="528" fill="none" stroke="#8b5cf6" stroke-width="0.5" stroke-dasharray="6,4" rx="8" opacity="0.4"/>
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="800" height="6" fill="#8b5cf6" rx="3"/>
+  <!-- Deloitte wordmark area -->
+  <rect x="30" y="30" width="160" height="50" rx="8" fill="#8b5cf6" opacity="0.15"/>
+  <text x="110" y="62" font-size="22" font-weight="800" fill="#8b5cf6" text-anchor="middle" letter-spacing="2">DELOITTE</text>
+  <!-- Forage badge -->
+  <rect x="620" y="30" width="150" height="50" rx="8" fill="#1e1a2e"/>
+  <text x="695" y="52" font-size="11" fill="#94a3b8" text-anchor="middle">Powered by</text>
+  <text x="695" y="68" font-size="14" font-weight="700" fill="#a78bfa" text-anchor="middle">FORAGE</text>
+  <!-- Shield icon -->
+  <path d="M400 110 L430 125 L430 155 Q430 175 400 185 Q370 175 370 155 L370 125 Z" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.6"/>
+  <path d="M390 148 L397 155 L413 138" stroke="#8b5cf6" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Certificate title -->
+  <text x="400" y="215" font-size="13" fill="#94a3b8" text-anchor="middle" letter-spacing="4" font-weight="500">CERTIFICATE OF COMPLETION</text>
+  <!-- Decorative line -->
+  <line x1="200" y1="230" x2="600" y2="230" stroke="#8b5cf6" stroke-width="1" opacity="0.4"/>
+  <!-- Main title -->
+  <text x="400" y="280" font-size="30" font-weight="800" fill="#ffffff" text-anchor="middle">Cyber Security</text>
+  <text x="400" y="318" font-size="30" font-weight="800" fill="#8b5cf6" text-anchor="middle">Job Simulation</text>
+  <!-- Awarded to -->
+  <text x="400" y="368" font-size="13" fill="#64748b" text-anchor="middle" letter-spacing="2">AWARDED TO</text>
+  <text x="400" y="408" font-size="26" font-weight="700" fill="#e2e8f0" text-anchor="middle">Pratham Raval</text>
+  <!-- Decorative underline -->
+  <line x1="280" y1="420" x2="520" y2="420" stroke="#8b5cf6" stroke-width="1.5" opacity="0.6"/>
+  <!-- Description -->
+  <text x="400" y="455" font-size="12" fill="#64748b" text-anchor="middle">For successfully completing all tasks in the</text>
+  <text x="400" y="473" font-size="12" fill="#64748b" text-anchor="middle">Deloitte Cyber Security Virtual Experience Program</text>
+  <!-- Year -->
+  <text x="400" y="505" font-size="13" fill="#8b5cf6" text-anchor="middle" font-weight="600">2024</text>
+  <!-- Corner decorations -->
+  <circle cx="50" cy="510" r="20" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
+  <circle cx="50" cy="510" r="12" fill="#8b5cf6" opacity="0.1"/>
+  <circle cx="750" cy="510" r="20" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
+  <circle cx="750" cy="510" r="12" fill="#8b5cf6" opacity="0.1"/>
+  <!-- Bottom text -->
+  <text x="400" y="540" font-size="10" fill="#334155" text-anchor="middle">Deloitte × Forage Virtual Experience Program · Certificate ID: CS-2024-PR</text>
+</svg>
