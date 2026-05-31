@@ -15,6 +15,8 @@ const certifications = [
     id: 1,
     title: 'Deloitte Data Analytics Job Simulation',
     issuer: 'Deloitte (Forage)',
+    date: '2024',
+    credentialLink: '/cert-data-analytics.svg',
     badge: 'Completed Successfully',
     description:
       'Completed practical tasks involving data analysis, data visualization, business insights, and analytical problem-solving using real-world business scenarios.',
@@ -28,6 +30,8 @@ const certifications = [
     id: 2,
     title: 'Deloitte Cyber Job Simulation',
     issuer: 'Deloitte (Forage)',
+    date: '2024',
+    credentialLink: '/cert-cyber-security.svg',
     badge: 'Completed Successfully',
     description:
       'Completed cybersecurity-focused tasks involving risk assessment, threat analysis, security awareness, and cyber security best practices.',
@@ -41,11 +45,13 @@ const certifications = [
     id: 3,
     title: 'Fundamentals of Generative AI',
     issuer: 'AWS Training & Certification',
+    date: '2024',
+    credentialLink: '/Aws Ai Fundamental certificate_page-0001.jpg',
     badge: 'Completed',
     description:
       'Completed comprehensive training on generative AI fundamentals, including machine learning concepts, prompt engineering, and AWS AI/ML services.',
     skills: ['Generative AI', 'Machine Learning', 'AWS AI/ML', 'Prompt Engineering'],
-    path: '/cert-aws-genai.svg',
+    path: '/Aws Ai Fundamental certificate_page-0001.jpg',
     color: 'from-orange-600/10 to-amber-500/5',
     borderColor: 'hover:border-orange-500/40',
     accentColor: 'orange',
@@ -129,15 +135,15 @@ function CertificateModal({ isOpen, onClose, cert }) {
           </div>
           <div className="flex items-center gap-3 w-full sm:w-auto">
             <a 
-              href={cert.path} 
+              href={cert.credentialLink} 
               download
               className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-white/10 hover:border-white/20 bg-white/[0.03] hover:bg-white/[0.08] text-slate-300 hover:text-white font-semibold text-xs transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-white/5"
             >
               <FiDownload size={15} />
-              Download SVG
+              Download
             </a>
             <a 
-              href={cert.path} 
+              href={cert.credentialLink} 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-primary to-blue-500 hover:from-primary-light hover:to-blue-400 text-white font-semibold text-xs transition-all duration-300 hover:shadow-xl hover:shadow-primary/30 hover:scale-105"
@@ -420,8 +426,8 @@ export default function Certifications() {
               </div>
               <div className="hidden sm:block w-px h-10 bg-white/10" />
               <div className="flex items-baseline gap-2">
-                <span className="text-3xl font-black bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">2</span>
-                <span className="text-slate-500 text-xs font-mono">Job Simulations</span>
+                <span className="text-3xl font-black bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">{certifications.length}</span>
+                <span className="text-slate-500 text-xs font-mono">Certifications</span>
               </div>
             </div>
           </div>
