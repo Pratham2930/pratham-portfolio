@@ -37,6 +37,19 @@ const certifications = [
     borderColor: 'hover:border-indigo-500/40',
     accentColor: 'indigo',
   },
+  {
+    id: 3,
+    title: 'Fundamentals of Generative AI',
+    issuer: 'AWS Training & Certification',
+    badge: 'Completed',
+    description:
+      'Completed comprehensive training on generative AI fundamentals, including machine learning concepts, prompt engineering, and AWS AI/ML services.',
+    skills: ['Generative AI', 'Machine Learning', 'AWS AI/ML', 'Prompt Engineering'],
+    path: '/cert-aws-genai.svg',
+    color: 'from-orange-600/10 to-amber-500/5',
+    borderColor: 'hover:border-orange-500/40',
+    accentColor: 'orange',
+  },
 ]
 
 // Premium Modal component to view credentials with rich styling & controls
@@ -380,8 +393,8 @@ export default function Certifications() {
             </p>
           </div>
 
-          {/* Redesigned 3-Column Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {/* Redesigned Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {certifications.map((cert, i) => (
               <CertCard 
                 key={cert.id} 
