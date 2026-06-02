@@ -2,13 +2,23 @@ import React, { useState, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { FiAward, FiExternalLink, FiCheckCircle, FiLinkedin, FiX, FiDownload } from 'react-icons/fi'
 
-// High-fidelity typographic Deloitte wordmark with brand precision
-const DeloitteLogo = ({ className = "h-5 w-auto" }) => (
-  <svg viewBox="0 0 450 120" className={className} fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Deloitte Logo">
-    <path d="M37.6 22.4v75.2h28.2c27.1 0 44.5-16.7 44.5-37.6S92.9 22.4 65.8 22.4H37.6zm19.8 17.6h7.6c14.6 0 24.3 8.7 24.3 20s-9.7 20-24.3 20h-7.6V40zm73.9 31.8c0-18.7 13.9-31.2 32.7-31.2 18.5 0 31.5 12.5 31.5 30.5v2.8h-44.5c1.4 10.1 8.7 15.6 19.1 15.6 7.6 0 13.5-3.5 15.6-7.3h19.1c-3.8 13.9-16.3 24.3-34.7 24.3-20.5 0-33.8-13.9-33.8-34.7zm44.5-6.6c-.7-8.3-6.6-13.2-12.8-13.2-6.6 0-11.8 4.9-12.5 13.2h25.3zM218 19.3v78.3h19.1V19.3H218zm27.8 41.3c0-20.5 14.2-34.7 34-34.7 19.8 0 34 14.2 34 34.7 0 20.5-14.2 34.7-34 34.7-19.8 0-34-14.2-34-34.7zm48.7 0c0-10.8-6.3-17.7-14.6-17.7s-14.6 6.9-14.6 17.7 6.3 17.7 14.6 17.7 14.6-6.9 14.6-17.7zm45.9-16.7v53.7h19.1V43.9h-19.1zm0-17.7v10.8h19.1V26.2h-19.1zm27.1 27.8V43.9h-10.8v-10h10.8V19.3h19.1v14.6h14.9v10h-14.9v28.8c0 5.6 2.8 8.3 8.3 8.3.7 0 1.4 0 2.1-.3v10.8c-1.7.3-3.8.3-5.6.3-13.9.4-23.9-6.9-23.9-20.8zm39.6 0V43.9H394v-10h10.8V19.3h19.1v14.6h14.9v10h-14.9v28.8c0 5.6 2.8 8.3 8.3 8.3.7 0 1.4 0 2.1-.3v10.8c-1.7.3-3.8.3-5.6.3-13.9.4-23.9-6.9-23.9-20.8zm45.1 7.3c0-18.7 13.9-31.2 32.7-31.2 18.5 0 31.5 12.5 31.5 30.5v2.8H410c1.4 10.1 8.7 15.6 19.1 15.6 7.6 0 13.5-3.5 15.6-7.3H464c-3.8 13.9-16.3 24.3-34.7 24.3-20.5.4-33.8-13.5-33.8-34.3zm44.5-6.6c-.7-8.3-6.6-13.2-12.8-13.2-6.6 0-11.8 4.9-12.5 13.2h25.3z" fill="currentColor" />
-    <circle cx="478.5" cy="85.5" r="12.5" fill="#86BC25" />
-  </svg>
-)
+
+// Helper function to extract provider name from issuer field
+const getProviderName = (issuer) => {
+  if (!issuer) return 'Unknown'
+  
+  const lowerIssuer = issuer.toLowerCase()
+  
+  if (lowerIssuer.includes('deloitte')) return 'Deloitte'
+  if (lowerIssuer.includes('aws')) return 'AWS'
+  if (lowerIssuer.includes('google')) return 'Google'
+  if (lowerIssuer.includes('coursera')) return 'Coursera'
+  if (lowerIssuer.includes('simplilearn')) return 'Simplilearn'
+  
+  // If no specific provider found, return the first word of issuer
+  return issuer.split(' ')[0]
+}
+
 
 const certifications = [
   {
@@ -107,6 +117,8 @@ const certifications = [
 function CertificateModal({ isOpen, onClose, cert }) {
   if (!isOpen || !cert) return null
 
+  const providerName = getProviderName(cert.issuer)
+
   // Lock scrolling on main page and handle Escape key close
   useEffect(() => {
     document.body.style.overflow = 'hidden'
@@ -134,14 +146,7 @@ function CertificateModal({ isOpen, onClose, cert }) {
         {/* Premium Header with gradient accent */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-white/5 bg-gradient-to-r from-dark/80 to-dark-card/80">
           <div className="flex items-center gap-4">
-            <div className="relative">
-              <div className="absolute inset-0 bg-primary/20 blur-lg rounded-full opacity-50"></div>
-              <div className="relative text-white max-w-[120px] flex items-center">
-                <DeloitteLogo className="h-5 w-auto" />
-              </div>
-            </div>
             <div className="hidden sm:flex items-center gap-3">
-              <span className="text-slate-600 text-sm">|</span>
               <span className="text-slate-200 text-sm font-semibold truncate max-w-md">{cert.title}</span>
             </div>
           </div>
@@ -176,7 +181,7 @@ function CertificateModal({ isOpen, onClose, cert }) {
               <span className="absolute inset-0 bg-emerald-500/50 blur-md rounded-full animate-pulse"></span>
             </div>
             <p className="text-[11px] font-mono text-slate-400">
-              Verified Credential via Deloitte x Forage platform
+              Verified Credential via {providerName}
             </p>
           </div>
           <div className="flex items-center gap-3 w-full sm:w-auto">
@@ -206,6 +211,7 @@ function CertificateModal({ isOpen, onClose, cert }) {
 
 function CertCard({ cert, index, onViewCertificate }) {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
+  const providerName = getProviderName(cert.issuer)
 
   return (
     <div
@@ -226,14 +232,8 @@ function CertCard({ cert, index, onViewCertificate }) {
       
       {/* Content relative to glass layers */}
       <div className="relative z-10 p-6 flex-1 flex flex-col">
-        {/* Top bar with logo and badge */}
+        {/* Top bar with badge */}
         <div className="flex items-center justify-between gap-4 mb-5">
-          <div className="relative">
-            <div className="absolute inset-0 bg-primary/10 blur-lg rounded-full opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
-            <div className="relative text-slate-400 group-hover/card:text-white transition-colors max-w-[110px] flex items-center">
-              <DeloitteLogo className="h-5 w-auto" />
-            </div>
-          </div>
           <span className="text-[10px] tracking-wider uppercase font-extrabold px-3 py-1.5 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-500/10 to-primary/10 text-primary-light shadow-lg shadow-blue-500/10">
             {cert.badge}
           </span>

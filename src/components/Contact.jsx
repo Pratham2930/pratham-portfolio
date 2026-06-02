@@ -62,7 +62,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="section-padding">
+    <section id="contact" className="section-padding relative">
       <div className="max-w-7xl mx-auto">
         <div
           ref={ref}

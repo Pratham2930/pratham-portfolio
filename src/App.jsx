@@ -23,8 +23,8 @@ function App() {
       <div className="fixed inset-0 bg-dark flex items-center justify-center z-50">
         <div className="text-center">
           <div className="relative w-20 h-20 mx-auto mb-6">
-            <div className="absolute inset-0 rounded-full border-4 border-primary/20"></div>
-            <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-primary animate-spin"></div>
+            <div className="absolute inset-0 rounded-full border-4 border-primary/20" />
+            <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-primary animate-spin" />
             <div className="absolute inset-3 rounded-full bg-primary/10 flex items-center justify-center">
               <span className="text-primary font-bold text-xl font-mono">PR</span>
             </div>

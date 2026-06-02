@@ -135,7 +135,7 @@ export default function Projects() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
 
   return (
-    <section id="projects" className="section-padding bg-dark-card/30">
+    <section id="projects" className="section-padding bg-dark-card/30 relative">
       <div className="max-w-7xl mx-auto">
         <div
           ref={ref}

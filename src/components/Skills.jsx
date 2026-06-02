@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
 import { useInView } from 'react-intersection-observer'
 
 const skillCategories = [
@@ -91,7 +91,7 @@ export default function Skills() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
 
   return (
-    <section id="skills" className="section-padding">
+    <section id="skills" className="section-padding relative">
       <div className="max-w-7xl mx-auto">
         <div
           ref={ref}
