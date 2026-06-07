@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
-import { FiAward, FiExternalLink, FiCheckCircle, FiLinkedin, FiX, FiDownload } from 'react-icons/fi'
+import { FiAward, FiExternalLink, FiCheckCircle, FiLinkedin, FiX, FiDownload, FiStar, FiTrendingUp, FiCpu } from 'react-icons/fi'
 
 
 // Helper function to extract provider name from issuer field
@@ -20,9 +20,132 @@ const getProviderName = (issuer) => {
 }
 
 
+function FeaturedBadge({ cert, index }) {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
+
+  return (
+    <div
+      ref={ref}
+      className={`group/featured relative overflow-hidden transition-all duration-700 hover:shadow-2xl hover:shadow-blue-500/30 hover:-translate-y-2 ${
+        inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+      }`}
+      style={{ transitionDelay: `${index * 0.15}s` }}
+    >
+      {/* Premium Glassmorphism Card */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-cyan-500/5 to-blue-600/10 backdrop-blur-xl border border-blue-500/30 rounded-2xl transition-all duration-500 group-hover/featured:border-blue-400/50" />
+      
+      {/* Animated gradient background on hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-cyan-500/10 opacity-0 group-hover/featured:opacity-100 transition-opacity duration-700" />
+      
+      {/* Header Accent Bar */}
+      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 group-hover/featured:scale-x-110 transition-transform duration-700 origin-left" />
+      
+      {/* Certification Highlight Ribbon */}
+      <div className="absolute -top-3 -right-3 z-20">
+        <div className="relative">
+          <div className="absolute inset-0 bg-blue-500/30 blur-lg rounded-full" />
+          <div className="relative bg-gradient-to-br from-blue-500 to-cyan-400 text-white px-4 py-1.5 rounded-lg shadow-xl shadow-blue-500/30 flex items-center gap-2">
+            <FiStar size={14} className="animate-pulse" />
+            <span className="text-xs font-bold tracking-wide">FEATURED</span>
+          </div>
+        </div>
+      </div>
+      
+      {/* Content relative to glass layers */}
+      <div className="relative z-10 p-8">
+        {/* Top bar with badges */}
+        <div className="flex items-center justify-between gap-4 mb-6">
+          <div className="flex items-center gap-3">
+            <span className="text-[10px] tracking-wider uppercase font-extrabold px-3 py-1.5 rounded-full border border-blue-400/40 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-300 shadow-lg shadow-blue-500/20">
+              {cert.badge}
+            </span>
+            <span className="text-[10px] tracking-wider uppercase font-semibold px-3 py-1.5 rounded-full border border-cyan-400/30 bg-cyan-500/10 text-cyan-300">
+              {cert.level}
+            </span>
+          </div>
+          <div className="flex items-center gap-2 text-blue-400">
+            <FiCpu size={16} />
+            <span className="text-xs font-mono font-semibold">{cert.category}</span>
+          </div>
+        </div>
+
+        {/* Google Cloud Branding */}
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-blue-500/30">
+            <FiAward size={24} className="text-white" />
+          </div>
+          <div>
+            <h3 className="text-white font-bold text-xl leading-tight group-hover/featured:text-transparent group-hover/featured:bg-gradient-to-r group-hover/featured:from-white group-hover/featured:to-cyan-300 group-hover/featured:bg-clip-text transition-all duration-500">
+              {cert.title}
+            </h3>
+            <p className="text-blue-300 text-sm font-semibold mt-1">{cert.issuer}</p>
+          </div>
+        </div>
+
+        {/* Description */}
+        <p className="text-slate-300 text-sm leading-relaxed mb-6 group-hover/featured:text-slate-200 transition-colors">
+          {cert.description}
+        </p>
+
+        {/* Skills Gained Section */}
+        <div className="mb-6">
+          <div className="flex items-center gap-2 mb-3">
+            <FiTrendingUp size={14} className="text-blue-400" />
+            <span className="text-xs font-bold text-blue-300 uppercase tracking-widest">Skills Gained</span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {cert.skills.map((skill, i) => (
+              <span 
+                key={i} 
+                className="px-3 py-1.5 text-[11px] font-semibold rounded-lg bg-blue-500/10 text-blue-200 border border-blue-400/30 hover:border-blue-400/60 hover:bg-blue-500/20 transition-all duration-300 hover:scale-105"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Completion Status */}
+        <div className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-400/30">
+          <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center border border-green-400/40">
+            <FiCheckCircle size={16} className="text-green-400" />
+          </div>
+          <div className="flex-1">
+            <div className="text-white text-sm font-semibold">Successfully Completed</div>
+            <div className="text-slate-400 text-xs">{cert.date}</div>
+          </div>
+          <div className="text-right">
+            <div className="text-blue-300 text-xs font-mono">Verified</div>
+            <div className="text-slate-500 text-[10px]">Google Cloud</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+
 const certifications = [
   {
     id: 1,
+    title: 'Engineer AI Agents with Agent Development Kit (ADK)',
+    issuer: 'Google Cloud',
+    date: '2024',
+    credentialLink: '#',
+    badge: 'Google Cloud Certified Skill Badge',
+    description:
+      'Successfully completed Google\'s Engineer AI Agents with Agent Development Kit (ADK) Skill Badge, demonstrating practical knowledge of AI agent development, agent orchestration, prompt engineering, and modern AI application workflows using Google Cloud technologies.',
+    skills: ['AI Agents', 'Agent Development Kit (ADK)', 'Prompt Engineering', 'Artificial Intelligence', 'Google Cloud', 'Agent Orchestration', 'Generative AI'],
+    path: '#',
+    color: 'from-blue-500/20 to-cyan-500/10',
+    borderColor: 'hover:border-blue-500/40',
+    accentColor: 'blue',
+    featured: true,
+    level: 'Intermediate',
+    category: 'Artificial Intelligence',
+  },
+  {
+    id: 2,
     title: 'Deloitte Data Analytics Job Simulation',
     issuer: 'Deloitte (Forage)',
     date: '2024',
@@ -446,9 +569,17 @@ export default function Certifications() {
             </p>
           </div>
 
+          {/* Featured Badge Section */}
+          <div className="mb-12">
+            <FeaturedBadge 
+              cert={certifications[0]} 
+              index={0} 
+            />
+          </div>
+
           {/* Redesigned Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {certifications.map((cert, i) => (
+            {certifications.slice(1).map((cert, i) => (
               <CertCard 
                 key={cert.id} 
                 cert={cert} 
