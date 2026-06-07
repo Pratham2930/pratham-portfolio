@@ -30,13 +30,13 @@ export default function Hero() {
           Available for opportunities
         </div>
 
-        {/* name */}
-        <h1 className="mt-8 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.05] text-white">
-          Pratham{' '}
-          <span className="bg-gradient-to-r from-primary via-primary-light to-blue-400 bg-clip-text text-transparent">
-            Raval
-          </span>
-        </h1>
+        {/* brand logo lockup */}
+        <h1 className="sr-only">Pratham Raval</h1>
+        <img
+          src="/logo-hero.png"
+          alt="Pratham Raval"
+          className="mt-8 mx-auto w-full max-w-md sm:max-w-lg md:max-w-2xl h-auto select-none drop-shadow-[0_0_40px_rgba(0,212,255,0.25)]"
+        />
 
         {/* rotating role */}
         <div className="mt-5 text-xl sm:text-2xl md:text-3xl font-semibold text-slate-300 h-9">
