@@ -38,6 +38,11 @@ export default function Hero() {
           className="mt-8 mx-auto w-full max-w-md sm:max-w-lg md:max-w-2xl h-auto select-none drop-shadow-[0_0_40px_rgba(0,212,255,0.25)]"
         />
 
+        {/* tagline */}
+        <p className="mt-3 text-xs sm:text-sm uppercase tracking-[0.3em] text-primary/70 font-medium">
+          UI/UX Designer <span className="text-slate-500">•</span> Software Developer
+        </p>
+
         {/* rotating role */}
         <div className="mt-5 text-xl sm:text-2xl md:text-3xl font-semibold text-slate-300 h-9">
           <TypeAnimation
