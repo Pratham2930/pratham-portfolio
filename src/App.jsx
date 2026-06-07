@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
+import FigmaDesignProjects from './components/FigmaDesignProjects'
 import Certifications from './components/Certifications'
 import Education from './components/Education'
 import Contact from './components/Contact'
@@ -43,6 +44,7 @@ function App() {
         <About />
         <Skills />
         <Projects />
+        <FigmaDesignProjects />
         <Certifications />
         <Education />
         <Contact />
