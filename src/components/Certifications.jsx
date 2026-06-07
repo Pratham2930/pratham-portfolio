@@ -160,7 +160,7 @@ const certifications = [
     accentColor: 'blue',
   },
   {
-    id: 2,
+    id: 7,
     title: 'Deloitte Cyber Job Simulation',
     issuer: 'Deloitte (Forage)',
     date: '2024',
