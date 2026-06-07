@@ -49,7 +49,7 @@ export default function About() {
             <span className="text-primary font-mono text-sm font-medium tracking-widest uppercase">About Me</span>
             <h2 className="section-title mt-2">Who I Am</h2>
             <p className="section-subtitle">
-              A passionate developer and analyst ready to make an impact
+             
             </p>
           </div>
 

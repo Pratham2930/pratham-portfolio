@@ -12,6 +12,7 @@ const figmaProjects = [
     thumbnail: '🛍️',
     color: 'from-purple-500/20 to-pink-500/10',
     borderColor: 'border-purple-500/30',
+    fglink: 'https://www.figma.com/design/o2xW02CrVRouX89G0bwkGK/Shree-Umiya-Fashion?node-id=0-1&t=FF0znRLdabZJ92cQ-1'
     
   },
   {

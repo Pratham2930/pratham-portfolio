@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { FiExternalLink, FiGithub, FiCode, FiLayers } from 'react-icons/fi'
+
 
 const projects = [
   {
@@ -45,7 +46,7 @@ const projects = [
   },
 ]
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project, index, onHover }) {
   const [expanded, setExpanded] = useState(false)
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
 
@@ -56,6 +57,8 @@ function ProjectCard({ project, index }) {
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}
       style={{ transitionDelay: `${index * 0.15}s` }}
+      onMouseEnter={() => onHover && onHover(true)}
+      onMouseLeave={() => onHover && onHover(false)}
     >
       {/* Card Header */}
       <div className={`bg-gradient-to-br ${project.color} p-6 border-b border-white/5`}>
@@ -133,6 +136,17 @@ function ProjectCard({ project, index }) {
 
 export default function Projects() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
+  const [avatarEmotion, setAvatarEmotion] = useState('sleep')
+
+  useEffect(() => {
+    if (inView) {
+      setAvatarEmotion('thinking')
+    }
+  }, [inView])
+
+  const handleProjectHover = (isHovering) => {
+    setAvatarEmotion(isHovering ? 'excited' : 'thinking')
+  }
 
   return (
     <section id="projects" className="section-padding bg-dark-card/30 relative">
@@ -150,10 +164,13 @@ export default function Projects() {
             </p>
           </div>
 
+          {/* AI Avatar Display */}
+          
+
           {/* Projects Grid */}
           <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
             {projects.map((project, i) => (
-              <ProjectCard key={project.id} project={project} index={i} />
+              <ProjectCard key={project.id} project={project} index={i} onHover={handleProjectHover} />
             ))}
           </div>
 

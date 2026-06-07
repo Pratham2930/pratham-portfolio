@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { FiMenu, FiX, FiDownload } from 'react-icons/fi'
 
+
 const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
@@ -56,11 +57,7 @@ export default function Navbar() {
             onClick={(e) => { e.preventDefault(); handleNavClick('#home') }}
             className="flex items-center gap-2 group"
           >
-            <img
-              src="/logo-mark.png"
-              alt="Pratham Raval logo"
-              className="h-9 md:h-10 w-auto transition-transform duration-200 group-hover:scale-105 drop-shadow-[0_0_12px_rgba(0,212,255,0.35)]"
-            />
+            
             <span className="font-bold text-white text-lg hidden sm:block">
               Pratham<span className="text-primary">.</span>
             </span>

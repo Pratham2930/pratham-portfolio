@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import {
   FiLinkedin,
@@ -9,131 +9,131 @@ import {
   FiMapPin,
 } from 'react-icons/fi'
 
+
 export default function Hero() {
+  const [avatarEmotion, setAvatarEmotion] = useState('welcome')
+
+  useEffect(() => {
+    // Welcome animation on load
+    const timer = setTimeout(() => setAvatarEmotion('sleep'), 3000)
+    return () => clearTimeout(timer)
+  }, [])
+
+  const handleDownloadResume = () => {
+    setAvatarEmotion('happy')
+    setTimeout(() => setAvatarEmotion('sleep'), 2000)
+  }
+
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center bg-dark overflow-hidden"
-    >
-      {/* background layers */}
+    <section id="home" className="relative min-h-screen flex items-center bg-dark overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-20" />
-      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[60rem] h-[60rem] max-w-[120vw] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-[-20rem] left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] max-w-[110vw] rounded-full bg-blue-600/10 blur-3xl pointer-events-none" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-0">
+        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-80px)]">
+          {/* Left Content */}
+          <div className="space-y-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight">
+              Pratham Raval
+              <span className="block gradient-text"></span>
+            </h1>
 
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-20 text-center">
-        {/* availability badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-slate-300 text-sm">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-          </span>
-          Available for opportunities
-        </div>
+            <div className="text-xl md:text-2xl font-semibold text-slate-300 h-8">
+              <TypeAnimation
+                sequence={[
+                  'Frontend Developer',
+                  2000,
+                  'Data Analyst',
+                  2000,
+                  'React.js Developer',
+                  2000,
+                  'UI/UX Enthusiast',
+                  2000,
+                  'Problem Solver',
+                  2000,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+                className="text-primary"
+              />
+            </div>
 
-        {/* brand logo lockup */}
-        <h1 className="sr-only">Pratham Raval</h1>
-        <img
-          src="/logo-hero.png"
-          alt="Pratham Raval"
-          className="mt-8 mx-auto w-full max-w-md sm:max-w-lg md:max-w-2xl h-auto select-none drop-shadow-[0_0_40px_rgba(0,212,255,0.25)]"
-        />
+            <p className="text-slate-400 text-lg leading-relaxed max-w-lg">
+              MSc IT graduate passionate about building modern web applications and solving
+              business problems through data-driven solutions. Based in{' '}
+              <span className="text-primary font-medium">Gandhinagar, Gujarat, India</span>.
+            </p>
 
-        {/* tagline */}
-        <p className="mt-3 text-xs sm:text-sm uppercase tracking-[0.3em] text-primary/70 font-medium">
-          UI/UX Designer <span className="text-slate-500">•</span> Software Developer
-        </p>
+            <div className="flex items-center gap-2 text-slate-500 text-sm">
+              <FiMapPin size={14} className="text-primary" />
+              <span>Gandhinagar, Gujarat, India</span>
+            </div>
 
-        {/* rotating role */}
-        <div className="mt-5 text-xl sm:text-2xl md:text-3xl font-semibold text-slate-300 h-9">
-          <TypeAnimation
-            sequence={[
-              'Frontend Developer',
-              2000,
-              'Data Analyst',
-              2000,
-              'React.js Developer',
-              2000,
-              'UI/UX Enthusiast',
-              2000,
-              'Problem Solver',
-              2000,
-            ]}
-            wrapper="span"
-            speed={50}
-            repeat={Infinity}
-            className="text-primary"
-          />
-        </div>
+            <div className="flex flex-wrap gap-4 pt-2">
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+                className="btn-primary text-base px-8 py-3.5"
+              >
+                Hire Me <FiArrowRight size={18} />
+              </a>
+              <a
+                href="/Pratham-Raval.pdf"
+                download
+                onClick={handleDownloadResume}
+                className="btn-outline text-base px-8 py-3.5"
+              >
+                <FiDownload size={18} /> Download CV
+              </a>
+            </div>
 
-        {/* description */}
-        <p className="mt-6 mx-auto max-w-2xl text-slate-400 text-base sm:text-lg leading-relaxed">
-          MSc IT graduate passionate about building modern web applications and solving
-          business problems through data-driven solutions. Based in{' '}
-          <span className="text-primary font-medium">Gandhinagar, Gujarat, India</span>.
-        </p>
+            <div className="flex items-center gap-4 pt-2">
+              <span className="text-slate-500 text-sm">Find me on:</span>
+              <div className="flex gap-3">
+                <a
+                  href="https://www.linkedin.com/in/prathamraval20"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary/40 hover:bg-primary/10 transition-all duration-200"
+                  aria-label="LinkedIn"
+                >
+                  <FiLinkedin size={18} />
+                </a>
+                <a
+                  href="mailto:ravalpratham29@gmail.com"
+                  className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary/40 hover:bg-primary/10 transition-all duration-200"
+                  aria-label="Email"
+                >
+                  <FiMail size={18} />
+                </a>
+                <a
+                  href="tel:+918866346424"
+                  className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary/40 hover:bg-primary/10 transition-all duration-200"
+                  aria-label="Phone"
+                >
+                  <FiPhone size={18} />
+                </a>
+              </div>
+            </div>
+          </div>
 
-        {/* location */}
-        <div className="mt-4 flex items-center justify-center gap-2 text-slate-500 text-sm">
-          <FiMapPin size={14} className="text-primary" />
-          <span>Gandhinagar, Gujarat, India</span>
-        </div>
+          {/* Right - AI Avatar */}
+          <div className="flex items-center justify-center relative">
+            {/* Glassmorphism background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-purple-500/5 to-blue-500/10 rounded-3xl backdrop-blur-sm border border-white/5" />
+            
+            
 
-        {/* CTAs */}
-        <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault()
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-            }}
-            className="btn-primary w-full sm:w-auto justify-center text-base px-8 py-3.5"
-          >
-            Hire Me <FiArrowRight size={18} />
-          </a>
-          <a
-            href="/Pratham-Raval.pdf"
-            download
-            className="btn-outline w-full sm:w-auto justify-center text-base px-8 py-3.5"
-          >
-            <FiDownload size={18} /> Download CV
-          </a>
-        </div>
-
-        {/* socials */}
-        <div className="mt-10 flex items-center justify-center gap-3">
-          <a
-            href="https://www.linkedin.com/in/prathamraval20"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary/40 hover:bg-primary/10 transition-all duration-200"
-            aria-label="LinkedIn"
-          >
-            <FiLinkedin size={18} />
-          </a>
-          <a
-            href="mailto:ravalpratham29@gmail.com"
-            className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary/40 hover:bg-primary/10 transition-all duration-200"
-            aria-label="Email"
-          >
-            <FiMail size={18} />
-          </a>
-          <a
-            href="tel:+918866346424"
-            className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary/40 hover:bg-primary/10 transition-all duration-200"
-            aria-label="Phone"
-          >
-            <FiPhone size={18} />
-          </a>
+            {/* Decorative elements */}
+            <div className="absolute top-10 right-10 w-20 h-20 bg-primary/20 rounded-full blur-2xl animate-pulse" />
+            <div className="absolute bottom-10 left-10 w-16 h-16 bg-purple-500/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
+          </div>
         </div>
       </div>
 
-      {/* scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-        <span className="text-slate-500 text-xs font-medium tracking-widest">SCROLL</span>
-        <div className="w-5 h-8 rounded-full border-2 border-slate-600 flex items-start justify-center p-1">
-          <div className="w-1 h-2 bg-primary rounded-full animate-bounce" />
-        </div>
-      </div>
+      
     </section>
   )
 }
