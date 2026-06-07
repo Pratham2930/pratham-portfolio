@@ -18,7 +18,6 @@ export default function Hero() {
           <div className="space-y-6">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight">
               Pratham Raval
-              <span className="block gradient-text"></span>
             </h1>
 
             <div className="text-xl md:text-2xl font-semibold text-slate-300 h-8">
