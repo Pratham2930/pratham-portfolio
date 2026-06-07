@@ -40,9 +40,11 @@ export default function Footer({ onOpenHireMe }) {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-primary/20 border border-primary/40 flex items-center justify-center">
-                <span className="text-primary font-bold font-mono">PR</span>
-              </div>
+              <img
+                src="/logo-mark.png"
+                alt="Pratham Raval logo"
+                className="h-10 w-auto drop-shadow-[0_0_12px_rgba(0,212,255,0.35)]"
+              />
               <div>
                 <div className="text-white font-bold text-lg">Pratham Raval</div>
                 <div className="text-primary text-xs font-medium">Frontend Dev & Data Analyst</div>

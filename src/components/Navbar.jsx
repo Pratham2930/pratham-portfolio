@@ -56,9 +56,11 @@ export default function Navbar() {
             onClick={(e) => { e.preventDefault(); handleNavClick('#home') }}
             className="flex items-center gap-2 group"
           >
-            <div className="w-9 h-9 rounded-lg bg-primary/20 border border-primary/40 flex items-center justify-center group-hover:bg-primary/30 transition-colors duration-200">
-              <span className="text-primary font-bold text-sm font-mono">PR</span>
-            </div>
+            <img
+              src="/logo-mark.png"
+              alt="Pratham Raval logo"
+              className="h-9 md:h-10 w-auto transition-transform duration-200 group-hover:scale-105 drop-shadow-[0_0_12px_rgba(0,212,255,0.35)]"
+            />
             <span className="font-bold text-white text-lg hidden sm:block">
               Pratham<span className="text-primary">.</span>
             </span>
