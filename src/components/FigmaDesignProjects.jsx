@@ -8,66 +8,66 @@ const figmaProjects = [
     title: 'E-Commerce Mobile App',
     description: 'A modern mobile shopping experience with intuitive navigation, product discovery, and seamless checkout flow designed for fashion retail.',
     category: 'Mobile App',
-    tools: ['Figma', 'Adobe XD'],
+    tools: ['Figma'],
     thumbnail: '🛍️',
     color: 'from-purple-500/20 to-pink-500/10',
     borderColor: 'border-purple-500/30',
-    figmaLink: '#',
+    
   },
   {
     id: 2,
     title: 'SaaS Dashboard',
     description: 'Clean and professional dashboard interface for analytics platform with data visualization, user management, and real-time metrics.',
     category: 'Dashboard',
-    tools: ['Figma', 'Illustrator'],
+    tools: ['Figma'],
     thumbnail: '📊',
     color: 'from-blue-500/20 to-cyan-500/10',
     borderColor: 'border-blue-500/30',
-    figmaLink: '#',
+   
   },
   {
     id: 3,
     title: 'Travel Booking Website',
     description: 'Inspiring travel platform with immersive imagery, easy booking flow, and personalized recommendations for adventure seekers.',
     category: 'Website',
-    tools: ['Figma', 'Photoshop'],
+    tools: ['Figma'],
     thumbnail: '✈️',
     color: 'from-green-500/20 to-emerald-500/10',
     borderColor: 'border-green-500/30',
-    figmaLink: '#',
+   
   },
   {
     id: 4,
     title: 'Fitness App Landing Page',
     description: 'High-energy landing page design for fitness application with motivational visuals, clear CTAs, and feature highlights.',
     category: 'Landing Page',
-    tools: ['Figma', 'Photoshop'],
+    tools: ['Figma'],
     thumbnail: '💪',
     color: 'from-orange-500/20 to-red-500/10',
     borderColor: 'border-orange-500/30',
-    figmaLink: '#',
+
   },
   {
     id: 5,
     title: 'Banking Mobile App',
     description: 'Secure and user-friendly banking interface with easy transactions, account overview, and financial management features.',
     category: 'Mobile App',
-    tools: ['Figma', 'Adobe XD'],
+    tools: ['Figma'],
     thumbnail: '🏦',
     color: 'from-indigo-500/20 to-violet-500/10',
     borderColor: 'border-indigo-500/30',
-    figmaLink: '#',
+    
   },
   {
     id: 6,
     title: 'Restaurant Website',
     description: 'Elegant restaurant website design with menu showcase, reservation system, and atmospheric imagery for fine dining.',
     category: 'Website',
-    tools: ['Figma', 'Illustrator'],
+    tools: ['Figma'],
     thumbnail: '🍽️',
     color: 'from-amber-500/20 to-yellow-500/10',
     borderColor: 'border-amber-500/30',
-    figmaLink: '#',
+    
   },
 ]
 
@@ -136,15 +136,7 @@ function FigmaProjectCard({ project, index }) {
         </div>
 
         {/* View Design Button */}
-        <a
-          href={project.figmaLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-outline w-full justify-center text-sm mt-2 group-hover:bg-primary group-hover:text-white group-hover:border-primary"
-        >
-          <FiExternalLink size={16} />
-          View Design
-        </a>
+        
       </div>
     </div>
   )
