@@ -20,7 +20,7 @@ const getProviderName = (issuer) => {
 }
 
 
-function FeaturedBadge({ cert, index }) {
+function FeaturedBadge({ cert, index, onViewCertificate }) {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
 
   return (
@@ -52,7 +52,8 @@ function FeaturedBadge({ cert, index }) {
       </div>
       
       {/* Content relative to glass layers */}
-      <div className="relative z-10 p-8">
+      <div className="relative z-10 p-8 flex flex-col lg:flex-row lg:items-center gap-8">
+        <div className="flex-1 min-w-0">
         {/* Top bar with badges */}
         <div className="flex items-center justify-between gap-4 mb-6">
           <div className="flex items-center gap-3">
@@ -119,6 +120,35 @@ function FeaturedBadge({ cert, index }) {
             <div className="text-slate-500 text-[10px]">Google Cloud</div>
           </div>
         </div>
+        </div>
+
+        {/* Badge thumbnail */}
+        <div className="w-full lg:w-80 shrink-0">
+          <div
+            onClick={onViewCertificate}
+            className="group/thumb relative rounded-2xl overflow-hidden border border-blue-400/30 bg-white cursor-pointer shadow-xl shadow-blue-500/10 hover:shadow-2xl hover:shadow-blue-500/30 transition-all duration-500"
+          >
+            <img
+              src={cert.path}
+              alt={`${cert.title} badge`}
+              loading="lazy"
+              className="w-full h-auto object-contain group-hover/thumb:scale-[1.03] transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-dark/40 opacity-0 group-hover/thumb:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-sm">
+              <span className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/40 to-cyan-500/40 border border-blue-400/50 text-white px-4 py-2.5 rounded-xl text-xs font-bold">
+                <FiExternalLink size={15} />
+                View Badge
+              </span>
+            </div>
+          </div>
+          <button
+            onClick={onViewCertificate}
+            className="mt-3 w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-400 hover:to-cyan-400 text-white font-bold text-sm transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/30 active:scale-[0.97]"
+          >
+            <FiAward size={16} />
+            View Certificate
+          </button>
+        </div>
       </div>
     </div>
   )
@@ -131,12 +161,12 @@ const certifications = [
     title: 'Engineer AI Agents with Agent Development Kit (ADK)',
     issuer: 'Google Cloud',
     date: '2024',
-    credentialLink: '#',
+    credentialLink: '/models/engineer-ai-agents-with-agent-development-kit-adk.png',
     badge: 'Google Cloud Certified Skill Badge',
     description:
       'Successfully completed Google\'s Engineer AI Agents with Agent Development Kit (ADK) Skill Badge, demonstrating practical knowledge of AI agent development, agent orchestration, prompt engineering, and modern AI application workflows using Google Cloud technologies.',
     skills: ['AI Agents', 'Agent Development Kit (ADK)', 'Prompt Engineering', 'Artificial Intelligence', 'Google Cloud', 'Agent Orchestration', 'Generative AI'],
-    path: '#',
+    path: '/models/engineer-ai-agents-with-agent-development-kit-adk.png',
     color: 'from-blue-500/20 to-cyan-500/10',
     borderColor: 'hover:border-blue-500/40',
     accentColor: 'blue',
@@ -574,6 +604,7 @@ export default function Certifications() {
             <FeaturedBadge 
               cert={certifications[0]} 
               index={0} 
+              onViewCertificate={() => openCertModal(certifications[0])} 
             />
           </div>
 
