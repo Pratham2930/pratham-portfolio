@@ -82,10 +82,6 @@ export default function Hero() {
         <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="#contact"
-            onClick={(e) => {
-              e.preventDefault()
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-            }}
             className="btn-primary w-full sm:w-auto justify-center text-base px-8 py-3.5"
           >
             Hire Me <FiArrowRight size={18} />
