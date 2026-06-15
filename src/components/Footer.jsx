@@ -1,43 +1,32 @@
-import React from 'react'
-import { FiMail, FiLinkedin, FiMapPin, FiHeart, FiArrowUp } from 'react-icons/fi'
+import { FiMail, FiLinkedin, FiMapPin, FiArrowUp } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa'
 
 const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Home',           href: '#home' },
+  { label: 'About',          href: '#about' },
+  { label: 'Skills',         href: '#skills' },
+  { label: 'Projects',       href: '#projects' },
   { label: 'Certifications', href: '#certifications' },
-  { label: 'Education', href: '#education' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Education',      href: '#education' },
+  { label: 'Contact',        href: '#contact' },
 ]
 
 const socialLinks = [
-  {
-    icon: <FiLinkedin size={18} />,
-    href: 'https://www.linkedin.com/in/pratham-r-703220257',
-    label: 'LinkedIn',
-  },
-  {
-    icon: <FiMail size={18} />,
-    href: 'mailto:ravalpratham29@gmail.com',
-    label: 'Email',
-  },
-  {
-    icon: <FaWhatsapp size={18} />,
-    href: 'https://wa.me/918866346424',
-    label: 'WhatsApp',
-  },
+  { icon: <FiLinkedin size={18} />, href: 'https://www.linkedin.com/in/pratham-r-703220257', label: 'LinkedIn' },
+  { icon: <FiMail size={18} />,     href: 'mailto:ravalpratham29@gmail.com',                 label: 'Email' },
+  { icon: <FaWhatsapp size={18} />, href: 'https://wa.me/918866346424',                      label: 'WhatsApp' },
 ]
 
-export default function Footer({ onOpenHireMe }) {
+export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
 
   return (
     <footer className="bg-dark-card/50 border-t border-white/5">
+
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
@@ -59,7 +48,7 @@ export default function Footer({ onOpenHireMe }) {
               <FiMapPin size={13} className="text-primary" />
               <span>Gandhinagar, Gujarat, India</span>
             </div>
-            {/* Social */}
+            {/* Social icons */}
             <div className="flex gap-3 pt-2">
               {socialLinks.map((s, i) => (
                 <a
@@ -98,7 +87,7 @@ export default function Footer({ onOpenHireMe }) {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Get In Touch */}
           <div>
             <h4 className="text-white font-semibold mb-5">Get In Touch</h4>
             <div className="space-y-3">
@@ -134,31 +123,16 @@ export default function Footer({ onOpenHireMe }) {
                 LinkedIn Profile
               </a>
             </div>
-
-            {/* Hire Me CTA */}
-            <div className="mt-6">
-              <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault()
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className="btn-primary text-sm py-2.5 w-full justify-center"
-              >
-                Hire Me
-              </a>
-            </div>
           </div>
+
         </div>
       </div>
 
       {/* Bottom Bar */}
       <div className="border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-slate-500 text-sm flex items-center gap-1.5">
-            © {new Date().getFullYear()} Pratham Raval. Made with
-            <FiHeart size={13} className="text-red-400 fill-red-400" />
-            using React.js & Tailwind CSS
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
+          <p className="text-slate-500 text-sm">
+            © 2026 Pratham Raval
           </p>
           <button
             onClick={scrollToTop}
@@ -168,6 +142,7 @@ export default function Footer({ onOpenHireMe }) {
           </button>
         </div>
       </div>
+
     </footer>
   )
 }
