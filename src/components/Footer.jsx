@@ -1,5 +1,6 @@
 import React from 'react'
-import { FiMail, FiPhone, FiLinkedin, FiMapPin, FiHeart, FiArrowUp } from 'react-icons/fi'
+import { FiMail, FiLinkedin, FiMapPin, FiHeart, FiArrowUp } from 'react-icons/fi'
+import { FaWhatsapp } from 'react-icons/fa'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -23,9 +24,9 @@ const socialLinks = [
     label: 'Email',
   },
   {
-    icon: <FiPhone size={18} />,
-    href: 'tel:+918866346424',
-    label: 'Phone',
+    icon: <FaWhatsapp size={18} />,
+    href: 'https://wa.me/918866346424',
+    label: 'WhatsApp',
   },
 ]
 
@@ -111,13 +112,15 @@ export default function Footer({ onOpenHireMe }) {
                 ravalpratham29@gmail.com
               </a>
               <a
-                href="tel:+918866346424"
+                href="https://wa.me/918866346424"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 text-slate-400 hover:text-primary text-sm transition-colors group"
               >
                 <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
-                  <FiPhone size={14} />
+                  <FaWhatsapp size={14} />
                 </div>
-                +91 8866346424
+                +91 8866346424 (WhatsApp)
               </a>
               <a
                 href="https://www.linkedin.com/in/pratham-r-703220257"

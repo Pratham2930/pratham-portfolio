@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FiAward, FiExternalLink, FiCheckCircle, FiLinkedin, FiX, FiDownload, FiStar, FiTrendingUp, FiCpu } from 'react-icons/fi'
+import { fadeUp, staggerContainer, staggerItem } from '../constants/animations'
 
 
 // Helper function to extract provider name from issuer field
@@ -588,7 +590,12 @@ export default function Certifications() {
           className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
           {/* Section Header */}
-          <div className="text-center mb-12 md:mb-16">
+          <motion.div
+            className="text-center mb-12 md:mb-16"
+            variants={fadeUp}
+            initial="hidden"
+            animate={inView ? 'visible' : 'hidden'}
+          >
             <span className="text-primary font-mono text-sm font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20">
               Credentials & Network
             </span>
@@ -597,7 +604,7 @@ export default function Certifications() {
             <p className="section-subtitle">
               Industry-recognized simulation benchmarks and direct connection pathways to expand opportunities.
             </p>
-          </div>
+          </motion.div>
 
           {/* Featured Badge Section */}
           <div className="mb-12">

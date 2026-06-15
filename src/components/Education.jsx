@@ -1,6 +1,8 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FiBook, FiCalendar, FiMapPin } from 'react-icons/fi'
+import { fadeUp } from '../constants/animations'
 
 const education = [
   {
@@ -167,7 +169,12 @@ export default function Education() {
           className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
           {/* Section Header */}
-          <div className="text-center mb-12 md:mb-16">
+          <motion.div
+            className="text-center mb-12 md:mb-16"
+            variants={fadeUp}
+            initial="hidden"
+            animate={inView ? 'visible' : 'hidden'}
+          >
             <span className="text-primary font-mono text-sm font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20">
               Background
             </span>
@@ -176,7 +183,7 @@ export default function Education() {
             <p className="section-subtitle">
               Academic foundation that drives my technical expertise
             </p>
-          </div>
+          </motion.div>
 
           {/* Timeline */}
           <div className="relative max-w-5xl mx-auto">
