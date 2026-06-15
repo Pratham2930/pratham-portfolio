@@ -9,8 +9,7 @@ export default defineConfig({
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
           'framer-motion': ['framer-motion'],
-          'firebase': ['firebase/app', 'firebase/firestore'],
-          'ui-utils': ['react-icons', 'react-hot-toast', 'react-type-animation', '@emailjs/browser'],
+          'ui-utils': ['react-icons', 'react-hot-toast', 'react-type-animation'],
         },
       },
     },
