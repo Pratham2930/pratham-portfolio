@@ -1,6 +1,5 @@
-import React, { useState, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 import { AnimatePresence } from 'framer-motion'
-import { Toaster } from 'react-hot-toast'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -22,38 +21,16 @@ function App() {
 
   return (
     <>
-      {/* Global toast notifications */}
-      <Toaster
-        position="top-right"
-        toastOptions={{
-          duration: 4000,
-          style: {
-            background: '#0d1526',
-            color: '#e2e8f0',
-            border: '1px solid rgba(14,165,233,0.3)',
-            borderRadius: '12px',
-            fontSize: '14px',
-          },
-          success: {
-            iconTheme: { primary: '#22c55e', secondary: '#0d1526' },
-          },
-          error: {
-            iconTheme: { primary: '#ef4444', secondary: '#0d1526' },
-          },
-        }}
-      />
-
-      {/* Cursor glow effect */}
+      {/* Cursor glow */}
       <CursorGlow />
 
-      {/* Loading screen with AnimatePresence for exit animation */}
+      {/* Loading screen — AnimatePresence drives the exit animation */}
       <AnimatePresence>
         {loading && <LoadingScreen onDone={handleLoadDone} />}
       </AnimatePresence>
 
       {!loading && (
         <div className="min-h-screen bg-dark text-white overflow-x-hidden">
-          {/* Scroll progress indicator */}
           <ScrollProgress />
           <Navbar />
           <main>
