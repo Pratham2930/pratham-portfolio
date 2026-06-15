@@ -91,13 +91,7 @@ export default function Navbar() {
               <FiDownload size={15} />
               Resume
             </a>
-            <a
-              href="#contact"
-              onClick={(e) => { e.preventDefault(); handleNavClick('#contact') }}
-              className="btn-primary text-sm py-2 px-4"
-            >
-              Hire Me
-            </a>
+           
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -141,7 +135,7 @@ export default function Navbar() {
               onClick={(e) => { e.preventDefault(); handleNavClick('#contact') }}
               className="btn-primary text-sm py-2 flex-1 justify-center"
             >
-              Hire Me
+               
             </a>
           </div>
         </div>
