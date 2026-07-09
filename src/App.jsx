@@ -7,6 +7,7 @@ import Skills from './components/Skills'
 import Projects from './components/Projects'
 import FigmaDesignProjects from './components/FigmaDesignProjects'
 import Certifications from './components/Certifications'
+import Badges from './components/Badges'
 import Education from './components/Education'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -40,6 +41,7 @@ function App() {
             <Projects />
             <FigmaDesignProjects />
             <Certifications />
+            <Badges />
             <Education />
             <Contact />
           </main>
